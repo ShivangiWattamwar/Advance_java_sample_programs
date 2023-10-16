@@ -1,0 +1,6 @@
+package com.jspiders.designpattern.structural;
+
+public class Event 
+{
+	void 
+}

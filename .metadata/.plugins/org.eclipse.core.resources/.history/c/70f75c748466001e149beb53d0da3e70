@@ -1,0 +1,8 @@
+package com.jspiders.JDBC.operation;
+
+public class InsertJDBC 
+{
+	public static void main(String[] args) {
+		
+	}
+}

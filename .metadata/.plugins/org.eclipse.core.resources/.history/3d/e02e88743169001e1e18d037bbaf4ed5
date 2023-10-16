@@ -1,0 +1,62 @@
+package com.jspiders.designpattern.main;
+
+import java.util.Scanner;
+
+import com.jspiders.designpattern.creational.Beverage;
+import com.jspiders.designpattern.creational.BlackTea;
+import com.jspiders.designpattern.creational.GreenTea;
+import com.jspiders.designpattern.creational.IceTea;
+import com.jspiders.designpattern.creational.LeamonTea;
+import com.jspiders.designpattern.creational.NormalTea;
+
+public class TeaFactoryMain 
+{
+	private static Beverage beverage;
+	
+	public static void main(String[] args) {
+	
+		try {
+			
+			factory().order();
+		} 
+		catch (NullPointerException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	private static Beverage factory() {
+		System.out.println("Select tea to order");
+		System.out.println("1. GreenTea"+"2. NormalTea"+"3. BlackTea"+"4. LeamonTea"+"5. IceTea");
+		Scanner sc=new Scanner(System.in);
+		int ch=sc.nextInt();
+		
+		switch(ch)
+		{
+		case 1:
+			beverage=new GreenTea();
+			break;
+			
+		case 2:
+			beverage=new NormalTea();
+			break;
+			
+		case 3:
+			beverage=new BlackTea();
+			break;
+			
+		case 4:
+			beverage=new LeamonTea();
+			break;
+			
+		case 5:
+			beverage=new IceTea();
+			break;
+			
+		default:
+			System.out.println("Invalid choice");
+		}
+		return beverage;
+	}
+
+}

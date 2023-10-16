@@ -1,0 +1,3 @@
+module JDBC {
+	requires mysql.connector.j;
+}

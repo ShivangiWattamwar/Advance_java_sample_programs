@@ -1,0 +1,65 @@
+package com.jspiders.JDBC.operation;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class DynamicInsert1 
+{
+	private static Connection connection;
+	private static PreparedStatement preparedStatement;
+	
+	
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter student id");
+		sc.nextInt();
+		sc.nextLine();
+		System.out.println("Enter student name");
+		sc.nextLine();
+		System.out.println("Enter student email");
+		sc.nextLine();
+		System.out.println("Enter student age");
+		sc.nextInt();
+		System.out.println("Enter student fees");
+		sc.nextDouble();
+		sc.close();
+		
+		try {
+			connection=openConnection();
+			preparedStatement=connection.prepareStatement("INSERT INTO student VALUES(?,?,?,?,?)");
+			preparedStatement.setInt(1,id);
+			preparedStatement.setString(2, name);
+			preparedStatement.setString(3,email);
+			preparedStatement.setInt(4, age);
+			preparedStatement.setDouble(5, fees);
+			
+		} catch (Exception e) {
+			
+		}
+		finally
+		{
+			closeConnection();
+		}
+	}
+	private static Connection openConnection() throws ClassNotFoundException, SQLException
+	{
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		return DriverManager.getConnection("jdbc:mysql://localhost:3306/weja3","root","root");
+	}
+	
+	private static void closeConnection() throws SQLException
+	{
+		if(preparedStatement !=null)
+		{
+			preparedStatement.close();
+		}
+		if(connection!=null)
+		{
+			connection.close();
+		}
+	}
+}

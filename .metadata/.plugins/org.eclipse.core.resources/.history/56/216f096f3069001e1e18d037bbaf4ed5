@@ -1,0 +1,7 @@
+package com.jspiders.designpattern.creational;
+
+public class TeaFactory 
+{
+	private static Beverage beverage;
+	
+}

@@ -1,0 +1,9 @@
+package com.jspiders.multithreading.main;
+
+public class MyThread5Mian {
+
+	public static void main(String[] args) {
+		
+		MyThread
+	}
+}

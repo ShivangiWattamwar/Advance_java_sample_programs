@@ -1,0 +1,73 @@
+package com.jspiders.JDBC.Dynamic;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class DynamicUpdate1 {
+
+	private static Connection connection;
+	private static PreparedStatement preparedStatement;
+	private static String query1;
+	private static String query2;
+	
+	public static void main(String[] args) throws SQLException {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter student id");
+		int id=sc.nextInt();
+		sc.nextLine();
+		System.out.println("Enter student name");
+		String name=sc.nextLine();
+		System.out.println("Enter student email");
+		String email=sc.nextLine();
+		System.out.println("Enter student age");
+		int age=sc.nextInt();
+		System.out.println("Enter student fees");
+		double fees=sc.nextDouble();
+		sc.close();
+		
+		try {
+			connection=openConnection();
+			query1="SELECT * FROM student where id=?";
+			query2="UPDATE student set name=?,email=?,age=?,fees=? WHERE id=?";
+			preparedStatement=connection.prepareStatement(query1);
+			preparedStatement.setInt(1,id);
+			int row=preparedStatement.executeUpdate();
+			System.out.println(row+" row affected!!");
+			
+			preparedStatement=connection.prepareStatement(query2);
+			preparedStatement.setString(1, name);
+			preparedStatement.setString(2,email);
+			preparedStatement.setInt(3, age);
+			preparedStatement.setDouble(4, fees);
+			preparedStatement.setInt(5,id);
+			int row1=preparedStatement.executeUpdate();
+			System.out.println(row1+" row affected!!");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally
+		{
+			closeConnection();
+		}
+	}
+	private static Connection openConnection() throws SQLException, ClassNotFoundException
+	{
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		return DriverManager.getConnection("jdbc:mysql://localhost:3306/weja3","root","root");
+	}
+	
+	private static void closeConnection() throws SQLException
+	{
+		if(preparedStatement!=null)
+		{
+			preparedStatement.close();
+		}
+		if(connection!=null)
+		{
+			connection.close();
+		}
+	}
+}

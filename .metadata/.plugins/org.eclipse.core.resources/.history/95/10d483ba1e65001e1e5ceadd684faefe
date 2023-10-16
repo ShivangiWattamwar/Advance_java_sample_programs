@@ -1,0 +1,12 @@
+package com.jspiders.JDBC.operation;
+
+import com.mysql.cj.jdbc.Driver;
+
+public class InsertJDBC {
+	public static void main(String[] args) {
+		
+		Driver driver=new com.mysql.cj.jdbc.Driver;
+		
+	}
+
+}

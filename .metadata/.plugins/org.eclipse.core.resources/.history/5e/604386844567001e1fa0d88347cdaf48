@@ -1,0 +1,5 @@
+package com.jspiders.serialization_and_deserialization.deserialization;
+
+public class Deserialization {
+
+}

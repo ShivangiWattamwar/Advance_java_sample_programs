@@ -1,0 +1,9 @@
+package com.jspiders.serialization_and_deserialization.serialization;
+
+public class Student {
+
+	public Student(int i, String string, String string2, int j) {
+		// TODO Auto-generated constructor stub
+	}
+
+}

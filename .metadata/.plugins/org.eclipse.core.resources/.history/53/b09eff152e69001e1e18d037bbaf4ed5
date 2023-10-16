@@ -1,0 +1,18 @@
+package com.jspiders.designpattern.main;
+
+import com.jspiders.designpattern.creational.SingletonLazy;
+
+public class SingletonLazyMain 
+{
+	public static void main(String[] args) {
+		
+		SingletonLazyMain singletonLazy1=SingletonLazy.getObject();
+		System.out.println(singletonLazy1);
+		
+		SingletonLazyMain singletonLazy2=SingletonLazy.getObject();
+		System.out.println(singletonLazy2);
+		
+		SingletonLazyMain singletonLazy3=SingletonLazy.getObject();
+		System.out.println(singletonLazy3);
+	}
+}

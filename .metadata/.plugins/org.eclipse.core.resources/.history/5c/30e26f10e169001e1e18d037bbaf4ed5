@@ -1,0 +1,51 @@
+package com.jspiders.JDBC.Dynamic;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class DynamicUpdate {
+
+	private static Connection connection;
+	private static PreparedStatement preparedStatement;
+	private static String query;
+	
+	public static void main(String[] args) throws SQLException {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter student id");
+		int id=sc.nextInt();
+		try {
+			connection=openConnection();
+			query="UPDATE student set name=?, email=?,age=?,fees=? WHERE id=?";
+			preparedStatement=connection.prepareStatement(query);
+			preparedStatement.setInt(1, id);
+			int row=preparedStatement.executeUpdate();
+			System.out.println(row+" row affected!!");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally
+		{
+			closeConnection();
+		}
+	}
+	private static Connection openConnection() throws SQLException, ClassNotFoundException
+	{
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		return DriverManager.getConnection("jdbc:mysql://localhost:3306","root","root");
+	}
+	
+	private static void closeConnection() throws SQLException
+	{
+		if(preparedStatement!=null)
+		{
+			preparedStatement.close();
+		}
+		if(connection!=null)
+		{
+			connection.close();
+		}
+	}
+}

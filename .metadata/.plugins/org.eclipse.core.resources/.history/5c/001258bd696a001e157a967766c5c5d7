@@ -1,0 +1,59 @@
+package com.jspiders.JDBC.Dynamic;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class DynamicDelete 
+{
+	private static Connection connection;
+	private static PreparedStatement preparedStatement;
+	private static ResultSet resultSet;
+	private static String query;
+	
+	public static void main(String[] args) {
+		
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter student id");
+		int id=sc.nextInt();
+		sc.close();
+		
+		try {
+			connection=openConnection();
+			query="DELETE FROM student WHERE id=?";
+			preparedStatement=connection.prepareStatement(query);
+			preparedStatement.setInt(1, id);
+			int row=preparedStatement.executeUpdate();
+			resultSet=preparedStatement.getResultSet();
+			System.out.println(row +" row(s) affected!!");
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+	private static Connection openConnection() throws ClassNotFoundException, SQLException
+	{
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		return DriverManager.getConnection("jdbc:mysql://localhost:3306/weja3","root","root");
+	}
+	
+	private static void closeConnection()
+	{
+		if(resultSet!=null)
+		{
+			resultSet.close();
+		}
+		if(connection!=null)
+		{
+			connection.close();
+		}
+		if(preparedStatement!=null)
+		{
+			preparedStatement.close();
+		}
+	}
+	
+}
