@@ -1,0 +1,40 @@
+package com.jspiders.car_studio.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.jspiders.car_studio.pojo.CarPOJO;
+
+
+@Service
+public class CarService {
+
+	public List<CarPOJO> findAllCars() {
+		List <CarPOJO> students=repository.findAllCars();
+		return cars;
+	}
+
+	public CarPOJO addCar(String name, String model, String fuel_type, long price) {
+	
+		return null;
+	}
+
+	public CarPOJO searchCar(int id) {
+		
+		return null;
+	}
+
+	public CarPOJO removeCar(int id) {
+		
+		return null;
+	}
+
+	public CarPOJO updateCar(int id, String name, String model, String fuel_type, long price) {
+		
+		return null;
+	}
+
+	
+}
+ 

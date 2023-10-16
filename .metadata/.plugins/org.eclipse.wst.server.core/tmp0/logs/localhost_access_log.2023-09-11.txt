@@ -1,0 +1,6 @@
+127.0.0.1 - - [11/Sep/2023:20:23:39 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [11/Sep/2023:20:23:40 +0530] "GET /springrest/WEB-INF/classes/com/jspiders/springrest/controller/StudentController.java HTTP/1.1" 404 682
+0:0:0:0:0:0:0:1 - - [11/Sep/2023:20:23:40 +0530] "GET /favicon.ico HTTP/1.1" 404 762
+0:0:0:0:0:0:0:1 - - [11/Sep/2023:20:24:08 +0530] "GET /springrest/ HTTP/1.1" 200 57
+127.0.0.1 - - [11/Sep/2023:20:27:24 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [11/Sep/2023:20:27:25 +0530] "GET /springrest/ HTTP/1.1" 200 57

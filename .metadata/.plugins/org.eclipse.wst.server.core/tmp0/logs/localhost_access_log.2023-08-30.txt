@@ -1,0 +1,6 @@
+0:0:0:0:0:0:0:1 - - [30/Aug/2023:19:24:18 +0530] "GET /JSP/RegistrationPage HTTP/1.1" 405 751
+0:0:0:0:0:0:0:1 - - [30/Aug/2023:19:24:25 +0530] "GET /JSP/Registration.html HTTP/1.1" 404 776
+0:0:0:0:0:0:0:1 - - [30/Aug/2023:19:25:12 +0530] "GET /JSP/Registration.jsp HTTP/1.1" 200 865
+0:0:0:0:0:0:0:1 - - [30/Aug/2023:19:25:33 +0530] "POST /JSP/RegistrationPage HTTP/1.1" 200 -
+0:0:0:0:0:0:0:1 - - [30/Aug/2023:19:25:56 +0530] "POST /JSP/RegistrationPage HTTP/1.1" 200 -
+0:0:0:0:0:0:0:1 - - [30/Aug/2023:19:26:02 +0530] "POST /JSP/RegistrationPage HTTP/1.1" 200 -
